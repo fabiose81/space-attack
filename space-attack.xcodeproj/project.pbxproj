@@ -54,14 +54,22 @@
 		4CB64A1B1FD6338A005A9853 /* space-attack */ = {
 			isa = PBXGroup;
 			children = (
+				4CB64A2E1FD63685005A9853 /* viewcontrollers */,
 				4CB64A1C1FD6338A005A9853 /* AppDelegate.swift */,
-				4CB64A1E1FD6338A005A9853 /* ViewController.swift */,
 				4CB64A201FD6338A005A9853 /* Main.storyboard */,
 				4CB64A231FD6338A005A9853 /* Assets.xcassets */,
 				4CB64A251FD6338A005A9853 /* LaunchScreen.storyboard */,
 				4CB64A281FD6338A005A9853 /* Info.plist */,
 			);
 			path = "space-attack";
+			sourceTree = "<group>";
+		};
+		4CB64A2E1FD63685005A9853 /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				4CB64A1E1FD6338A005A9853 /* ViewController.swift */,
+			);
+			path = viewcontrollers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
