@@ -16,6 +16,8 @@
 		9B8B4F7E1FD7030A00B2FB1D /* satellite.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F7A1FD7030900B2FB1D /* satellite.png */; };
 		9B8B4F7F1FD7030A00B2FB1D /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F7B1FD7030900B2FB1D /* bg.png */; };
 		9B8B4F801FD7030A00B2FB1D /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F7C1FD7030900B2FB1D /* rocket.png */; };
+		9B8B4F821FD713A700B2FB1D /* explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F811FD713A700B2FB1D /* explosion.png */; };
+		9B8B4F841FD71C8700B2FB1D /* comet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F831FD71C8700B2FB1D /* comet.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		9B8B4F7A1FD7030900B2FB1D /* satellite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = satellite.png; sourceTree = "<group>"; };
 		9B8B4F7B1FD7030900B2FB1D /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		9B8B4F7C1FD7030900B2FB1D /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
+		9B8B4F811FD713A700B2FB1D /* explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion.png; sourceTree = "<group>"; };
+		9B8B4F831FD71C8700B2FB1D /* comet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comet.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 		4CB64A2F1FD6399C005A9853 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9B8B4F831FD71C8700B2FB1D /* comet.png */,
+				9B8B4F811FD713A700B2FB1D /* explosion.png */,
 				9B8B4F791FD7030900B2FB1D /* alien.png */,
 				9B8B4F7B1FD7030900B2FB1D /* bg.png */,
 				9B8B4F7C1FD7030900B2FB1D /* rocket.png */,
@@ -151,7 +157,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B8B4F841FD71C8700B2FB1D /* comet.png in Resources */,
 				9B8B4F7F1FD7030A00B2FB1D /* bg.png in Resources */,
+				9B8B4F821FD713A700B2FB1D /* explosion.png in Resources */,
 				9B8B4F801FD7030A00B2FB1D /* rocket.png in Resources */,
 				4CB64A271FD6338A005A9853 /* LaunchScreen.storyboard in Resources */,
 				9B8B4F7E1FD7030A00B2FB1D /* satellite.png in Resources */,

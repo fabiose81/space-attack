@@ -77,6 +77,14 @@
                                     <action selector="actionRotateRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CTy-BJ-054"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="explosion.png" translatesAutoresizingMaskIntoConstraints="NO" id="kDf-Jv-Xf3">
+                                <rect key="frame" x="649" y="-140" width="171" height="129"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comet.png" translatesAutoresizingMaskIntoConstraints="NO" id="wkD-Xh-m4v">
+                                <rect key="frame" x="465" y="-100" width="123" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -89,6 +97,8 @@
                     </view>
                     <connections>
                         <outlet property="alien" destination="oZ8-I8-SzZ" id="qIn-BB-HJ5"/>
+                        <outlet property="comet" destination="wkD-Xh-m4v" id="ks6-Te-hpK"/>
+                        <outlet property="explosion" destination="kDf-Jv-Xf3" id="Bcd-w8-pWQ"/>
                         <outlet property="rocket" destination="SEj-ih-pr0" id="UoL-dR-eBx"/>
                         <outlet property="satellite" destination="qoU-i0-JiK" id="cz6-xI-idw"/>
                         <outlet property="score" destination="aww-vo-dTU" id="CPz-ln-AzP"/>
@@ -103,6 +113,8 @@
     <resources>
         <image name="alien.png" width="154" height="128"/>
         <image name="bg.png" width="1080" height="750"/>
+        <image name="comet.png" width="123" height="95"/>
+        <image name="explosion.png" width="300" height="300"/>
         <image name="rocket.png" width="100" height="243"/>
         <image name="satellite.png" width="448" height="443"/>
     </resources>
