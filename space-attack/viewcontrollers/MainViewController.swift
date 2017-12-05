@@ -22,6 +22,26 @@ class MainViewController: UIViewController {
     var timerRocket: Timer!
     
     var alienExploded = 0
+   
+    var controlRotation = 0
+    
+    @IBAction func actionRotateLeft(_ sender: UIButton)
+    {
+        if controlRotation >= 0
+        {
+            satellite.transform =  satellite.transform.rotated(by: CGFloat(-45))
+            controlRotation -= 1
+        }
+    }
+    
+    @IBAction func actionRotateRight(_ sender: UIButton)
+    {
+        if controlRotation <= 0
+        {
+            satellite.transform =  satellite.transform.rotated(by: CGFloat(45))
+            controlRotation += 1
+        }        
+    }
     
     @IBAction func actionShot(_ sender: UIButton)
     {
@@ -113,9 +133,11 @@ class MainViewController: UIViewController {
     }
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         createAlien()
-       //satellite.transform =  satellite.transform.rotated(by: CGFloat(-45))
+        createRocket()
+       
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
