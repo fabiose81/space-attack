@@ -22,15 +22,20 @@ class MainViewController: UIViewController {
     var timerRocket: Timer!
     
     var alienExploded = 0
-   
     var controlRotation = 0
+    var angle = 0
+    
+    var rocketWidth = 0
+    var rocketHeight = 0
     
     @IBAction func actionRotateLeft(_ sender: UIButton)
     {
         if controlRotation >= 0
         {
             satellite.transform =  satellite.transform.rotated(by: CGFloat(-45))
+            rocket.transform =  rocket.transform.rotated(by: CGFloat(-45))
             controlRotation -= 1
+            angle = -200
         }
     }
     
@@ -39,15 +44,16 @@ class MainViewController: UIViewController {
         if controlRotation <= 0
         {
             satellite.transform =  satellite.transform.rotated(by: CGFloat(45))
+            rocket.transform =  rocket.transform.rotated(by: CGFloat(45))
             controlRotation += 1
+            angle = 90
         }        
     }
     
     @IBAction func actionShot(_ sender: UIButton)
     {
         rocket.isHidden = false
-        
-        //slide2.isEnabled = false
+
         sender.isEnabled = false
         
         timerRocket =  Timer.scheduledTimer(timeInterval: 0.01,
@@ -82,9 +88,10 @@ class MainViewController: UIViewController {
         let rocketHeight = rocket.frame.height
         
         rocket.center = satellite.center
-        rocket.frame = CGRect(x: 0, y: 0, width: rocketWidth, height: rocketHeight)
-        rocket.center = satellite.center
-        
+      /*  rocket.frame = CGRect(x: 0, y: 0, width: rocketWidth, height: rocketHeight)*/
+ 
+       /* rocket.frame.origin.x = satellite.frame.origin.x
+        rocket.frame.origin.y = satellite.frame.origin.y*/
         rocket.isHidden = true
     }
     
@@ -103,8 +110,8 @@ class MainViewController: UIViewController {
     
     @objc func animationRocket()
     {
-        let cos = __cospi(90/180)
-        let sin = __sinpi(90/180)
+        let cos = __cospi(Double(angle)/Double.pi)
+        let sin = __sinpi(Double(angle)/Double.pi)
         
         rocket.center.x -= CGFloat(cos)
         rocket.center.y -= CGFloat(sin)
@@ -115,8 +122,8 @@ class MainViewController: UIViewController {
         {
             timerRocket.invalidate()
             createRocket()
-            //slide2.isEnabled = true
             shot.isEnabled = true
+            rocket.transform = rocket.transform.rotated(by: CGFloat(45))
         }
         
         if(rocket.frame.intersects(alien.frame))
@@ -125,7 +132,6 @@ class MainViewController: UIViewController {
             score.text = String(alienExploded)
             timerAlien.invalidate()
             timerRocket.invalidate()
-            //slide2.isEnabled = true
             shot.isEnabled = true
             createAlien()
             createRocket()
@@ -135,9 +141,11 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad()
     {
+        rocketWidth = Int(rocket.frame.width)
+        rocketHeight = Int(rocket.frame.height)
+        
         createAlien()
         createRocket()
-       
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
