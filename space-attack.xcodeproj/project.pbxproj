@@ -12,6 +12,7 @@
 		4CB64A221FD6338A005A9853 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB64A201FD6338A005A9853 /* Main.storyboard */; };
 		4CB64A241FD6338A005A9853 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CB64A231FD6338A005A9853 /* Assets.xcassets */; };
 		4CB64A271FD6338A005A9853 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB64A251FD6338A005A9853 /* LaunchScreen.storyboard */; };
+		4CFCD1DB1FD903E400DFC789 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4CFCD1DA1FD903E400DFC789 /* explosion.mp3 */; };
 		9B8B4F7D1FD7030A00B2FB1D /* alien.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F791FD7030900B2FB1D /* alien.png */; };
 		9B8B4F7E1FD7030A00B2FB1D /* satellite.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F7A1FD7030900B2FB1D /* satellite.png */; };
 		9B8B4F801FD7030A00B2FB1D /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F7C1FD7030900B2FB1D /* rocket.png */; };
@@ -27,6 +28,7 @@
 		4CB64A231FD6338A005A9853 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CB64A261FD6338A005A9853 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CB64A281FD6338A005A9853 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CFCD1DA1FD903E400DFC789 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		9B8B4F791FD7030900B2FB1D /* alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alien.png; sourceTree = "<group>"; };
 		9B8B4F7A1FD7030900B2FB1D /* satellite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = satellite.png; sourceTree = "<group>"; };
 		9B8B4F7C1FD7030900B2FB1D /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		4CB64A1B1FD6338A005A9853 /* space-attack */ = {
 			isa = PBXGroup;
 			children = (
+				4CFCD1D71FD9016400DFC789 /* audio */,
 				4CB64A2F1FD6399C005A9853 /* images */,
 				4CB64A2E1FD63685005A9853 /* viewcontrollers */,
 				4CB64A1C1FD6338A005A9853 /* AppDelegate.swift */,
@@ -93,6 +96,14 @@
 				9B8B4F7A1FD7030900B2FB1D /* satellite.png */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		4CFCD1D71FD9016400DFC789 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				4CFCD1DA1FD903E400DFC789 /* explosion.mp3 */,
+			);
+			path = audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +170,7 @@
 				9B8B4F801FD7030A00B2FB1D /* rocket.png in Resources */,
 				4CB64A271FD6338A005A9853 /* LaunchScreen.storyboard in Resources */,
 				9B8B4F7E1FD7030A00B2FB1D /* satellite.png in Resources */,
+				4CFCD1DB1FD903E400DFC789 /* explosion.mp3 in Resources */,
 				9B8B4F7D1FD7030A00B2FB1D /* alien.png in Resources */,
 				4CB64A241FD6338A005A9853 /* Assets.xcassets in Resources */,
 				4CB64A221FD6338A005A9853 /* Main.storyboard in Resources */,

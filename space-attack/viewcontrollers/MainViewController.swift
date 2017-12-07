@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainViewController: UIViewController {
     
@@ -19,17 +20,18 @@ class MainViewController: UIViewController {
     @IBOutlet weak var comet: UIImageView!
     
     @IBOutlet weak var shot: UIButton!
+  
+    var rocket: UIImageView!
     
     var timerAlien: Timer!
     var timerRocket: Timer!
     var timerComet: Timer!
     
+    var playerExplosion: AVAudioPlayer?
+    
     var alienExploded = 0
     var controlRotation = 0
-    var angle = 0
-    
-    var rocketWidth = 0
-    var rocketHeight = 0
+    var angle = -300
     
     @IBAction func actionRotateLeft(_ sender: UIButton)
     {
@@ -38,7 +40,14 @@ class MainViewController: UIViewController {
             satellite.transform =  satellite.transform.rotated(by: CGFloat(-45))
             rocket.transform =  rocket.transform.rotated(by: CGFloat(-45))
             controlRotation -= 1
-            angle = -200
+            if controlRotation == 0
+            {
+                angle = -300
+            }
+            else
+            {
+                angle = 45
+            }
         }
     }
     
@@ -49,15 +58,21 @@ class MainViewController: UIViewController {
             satellite.transform =  satellite.transform.rotated(by: CGFloat(45))
             rocket.transform =  rocket.transform.rotated(by: CGFloat(45))
             controlRotation += 1
-            angle = 90
-        }        
+            if controlRotation == 0
+            {
+                angle = -300
+            }
+            else
+            {
+                angle = 90
+            }
+        }
     }
     
     @IBAction func actionShot(_ sender: UIButton)
     {
-        rocket.isHidden = false
-
         sender.isEnabled = false
+        rocket.isHidden = false
         
         timerRocket =  Timer.scheduledTimer(timeInterval: 0.01,
                                         target: self,
@@ -87,14 +102,12 @@ class MainViewController: UIViewController {
     
     func createRocket()
     {
-        let rocketWidth = rocket.frame.width
-        let rocketHeight = rocket.frame.height
-        
+        let imagem = UIImage(named: "rocket")
+        rocket = UIImageView(image:imagem)
+        rocket.frame = CGRect(x: 0, y: 0, width: 19, height: 50)
+        view.addSubview(rocket)
         rocket.center = satellite.center
-      /*  rocket.frame = CGRect(x: 0, y: 0, width: rocketWidth, height: rocketHeight)*/
- 
-       /* rocket.frame.origin.x = satellite.frame.origin.x
-        rocket.frame.origin.y = satellite.frame.origin.y*/
+        rocket.transform = satellite.transform
         rocket.isHidden = true
     }
     
@@ -130,18 +143,21 @@ class MainViewController: UIViewController {
         rocket.center.x -= CGFloat(cos)
         rocket.center.y -= CGFloat(sin)
         
-        let rocketPosition = rocket.frame.height * -1
+        let rocketPositionX = rocket.frame.width * -1
+        let rocketPositionY = rocket.frame.height * -1
         
-        if(rocket.frame.origin.y < rocketPosition)
+        if(rocket.frame.origin.x < rocketPositionX || rocket.frame.origin.y < rocketPositionY)
         {
             timerRocket.invalidate()
+            rocket.isHidden = true
+            rocket = nil
             createRocket()
             shot.isEnabled = true
-            rocket.transform = rocket.transform.rotated(by: CGFloat(45))
         }
         
         if(rocket.frame.intersects(alien.frame))
         {
+            playerExplosion?.play()
             alienExploded += 1
             score.text = String(alienExploded)
             explosion.center = alien.center
@@ -154,11 +170,28 @@ class MainViewController: UIViewController {
             timerAlien.invalidate()
             timerRocket.invalidate()
             shot.isEnabled = true
+            rocket.isHidden = true
+            rocket = nil
             createAlien()
             createRocket()
         }
     }
     
+    //--- Fonctions pour commencer l'audio
+    func initSound()
+    {
+        guard let urlExplosion = Bundle.main.url(forResource: "explosion", withExtension: "mp3") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            playerExplosion = try AVAudioPlayer(contentsOf: urlExplosion)
+            playerExplosion?.setVolume(1.0, fadeDuration: 0)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
     
     override func viewDidLoad()
     {
