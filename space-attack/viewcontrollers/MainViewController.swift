@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainViewController: UIViewController {
     
@@ -21,6 +22,8 @@ class MainViewController: UIViewController {
     
     var timerAlien: Timer!
     var timerRocket: Timer!
+    
+    var playerExplosion: AVAudioPlayer?
     
     var alienExploded = 0
     var controlRotation = 0
@@ -139,6 +142,7 @@ class MainViewController: UIViewController {
         
         if(rocket.frame.intersects(alien.frame))
         {
+            playerExplosion?.play()
             alienExploded += 1
             score.text = String(alienExploded)
             timerAlien.invalidate()
@@ -151,11 +155,27 @@ class MainViewController: UIViewController {
         }
     }
     
+    //--- Fonctions pour commencer l'audio
+    func initSound()
+    {
+        guard let urlExplosion = Bundle.main.url(forResource: "explosion", withExtension: "mp3") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            playerExplosion = try AVAudioPlayer(contentsOf: urlExplosion)
+            playerExplosion?.setVolume(1.0, fadeDuration: 0)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
     
     override func viewDidLoad()
     {
         createAlien()
         createRocket()
+        initSound()
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
