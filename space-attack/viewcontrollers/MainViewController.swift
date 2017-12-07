@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var satellite: UIImageView!
     @IBOutlet weak var alien: UIImageView!
-    @IBOutlet weak var rocket: UIImageView!
     @IBOutlet weak var explosion: UIImageView!
     @IBOutlet weak var comet: UIImageView!
     
@@ -195,9 +194,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad()
     {
-       // rocketWidth = Int(rocket.frame.width)
-       // rocketHeight = Int(rocket.frame.height)
-        
+        shot.layer.cornerRadius = 35
+        shot.titleLabel?.adjustsFontSizeToFitWidth = true
         createAlien()
         createRocket()
         createComet()
