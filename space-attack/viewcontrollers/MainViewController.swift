@@ -20,17 +20,22 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var shot: UIButton!
   
+    @IBOutlet weak var timeRemains: UILabel!
+    
     var rocket: UIImageView!
     
     var timerAlien: Timer!
     var timerRocket: Timer!
     var timerComet: Timer!
     
+    var timerX: Timer!
+    
     var playerExplosion: AVAudioPlayer?
     
     var alienExploded = 0
     var controlRotation = 0
     var angle = -300
+    var time = 10
     
     @IBAction func actionRotateLeft(_ sender: UIButton)
     {
@@ -158,6 +163,7 @@ class MainViewController: UIViewController {
         {
             playerExplosion?.play()
             alienExploded += 1
+            time += 10
             score.text = String(alienExploded)
             explosion.center = alien.center
             self.explosion.isHidden = false
@@ -174,6 +180,31 @@ class MainViewController: UIViewController {
             createAlien()
             createRocket()
         }
+    }
+    
+    @objc func x()
+    {
+        time -= 1;
+        
+        timeRemains.text = String(time)
+        
+        if time == 0 {
+            timerX.invalidate()
+            if (timerRocket != nil) {
+                timerRocket.invalidate()
+            }
+            
+            performSegue(withIdentifier: "seg", sender: self)
+        }
+       
+    }
+    
+    func initTime(){
+        timerX =  Timer.scheduledTimer(timeInterval: 1,
+                                           target: self,
+                                           selector: #selector(x),
+                                           userInfo: nil,
+                                           repeats: true)
     }
     
     //--- Fonctions pour commencer l'audio
@@ -199,6 +230,8 @@ class MainViewController: UIViewController {
         createAlien()
         createRocket()
         createComet()
+        initSound()
+        initTime()
        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
