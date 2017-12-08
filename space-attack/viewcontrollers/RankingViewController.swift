@@ -23,15 +23,35 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableViewRanking: UITableView!
     
     var ranking = [String: String]()
-    
+    var rankingKeyAsList: Array<Any>!
     
     @IBAction func actionSaveScore(_ sender: UIButton)
     {
         let _user = String(describing: user.text!).trimmingCharacters(in: .whitespaces)
         
-        if _user != "" {
-            ranking.updateValue("100", forKey: _user)
-            tableViewRanking.reloadData()
+        if _user != ""
+        {
+            if (ranking[_user] != nil)
+            {
+                let alertController = UIAlertController(title: "Space-Attack", message: "Utilisateur deja exist", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Fermer", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                present(alertController, animated: true, completion: nil)
+            }
+            else
+            {
+                ranking.updateValue("100", forKey: _user)
+                rankingKeyAsList = Array(ranking.keys)
+                
+                tableViewRanking.reloadData()
+            }
+        }
+        else
+        {
+            let alertController = UIAlertController(title: "Space-Attack", message: "Composez un utilisateur", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "Fermer", style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
         }
         
     }
@@ -42,11 +62,8 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ranking", for: indexPath) as! RankingTableViewCell
-        
-       /* let desc = criterias[indexPath.row].desc
-        let weight = criterias[indexPath.row].weight*/
-        
-        cell.labelUserName.text = "user"
+    
+        cell.labelUserName.text = rankingKeyAsList[indexPath.row] as? String
         cell.labelScore.text = "100"
         
         return cell

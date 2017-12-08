@@ -27,8 +27,7 @@ class MainViewController: UIViewController {
     var timerAlien: Timer!
     var timerRocket: Timer!
     var timerComet: Timer!
-    
-    var timerX: Timer!
+    var timerGameOver: Timer!
     
     var playerExplosion: AVAudioPlayer?
     
@@ -182,14 +181,14 @@ class MainViewController: UIViewController {
         }
     }
     
-    @objc func x()
+    @objc func countDown()
     {
         time -= 1;
         
         timeRemains.text = String(time)
         
         if time == 0 {
-            timerX.invalidate()
+            timerGameOver.invalidate()
             if (timerRocket != nil) {
                 timerRocket.invalidate()
             }
@@ -200,9 +199,9 @@ class MainViewController: UIViewController {
     }
     
     func initTime(){
-        timerX =  Timer.scheduledTimer(timeInterval: 1,
+        timerGameOver =  Timer.scheduledTimer(timeInterval: 1,
                                            target: self,
-                                           selector: #selector(x),
+                                           selector: #selector(countDown),
                                            userInfo: nil,
                                            repeats: true)
     }
