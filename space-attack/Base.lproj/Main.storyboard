@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
+        <array key="spaceman.ttf">
+            <string>Spaceman</string>
         </array>
     </customFonts>
     <scenes>
@@ -30,21 +30,16 @@
                                 <rect key="frame" x="1370" y="317" width="154" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aww-vo-dTU">
-                                <rect key="frame" x="58" y="33" width="90" height="111"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="75"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="satellite.png" translatesAutoresizingMaskIntoConstraints="NO" id="qoU-i0-JiK">
                                 <rect key="frame" x="563" y="699" width="224" height="221"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHz-Fc-hrr">
-                                <rect key="frame" x="1282" y="919" width="64" height="67"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHz-Fc-hrr">
+                                <rect key="frame" x="1178" y="870" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="SHOT">
+                                <color key="backgroundColor" red="0.32817646861076355" green="0.60112673044204712" blue="0.22039321064949036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Spaceman" family="spaceman" pointSize="18"/>
+                                <state key="normal" title="SHOOT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -73,6 +68,21 @@
                                     <action selector="actionRotateRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TrP-Sm-NYJ"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="explosion.png" translatesAutoresizingMaskIntoConstraints="NO" id="kDf-Jv-Xf3">
+                                <rect key="frame" x="649" y="-140" width="171" height="129"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comet.png" translatesAutoresizingMaskIntoConstraints="NO" id="wkD-Xh-m4v">
+                                <rect key="frame" x="465" y="-100" width="123" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aww-vo-dTU">
+                                <rect key="frame" x="20" y="20" width="90" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Spaceman" family="spaceman" pointSize="70"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -85,6 +95,8 @@
                     </view>
                     <connections>
                         <outlet property="alien" destination="oZ8-I8-SzZ" id="qIn-BB-HJ5"/>
+                        <outlet property="comet" destination="wkD-Xh-m4v" id="ks6-Te-hpK"/>
+                        <outlet property="explosion" destination="kDf-Jv-Xf3" id="Bcd-w8-pWQ"/>
                         <outlet property="satellite" destination="qoU-i0-JiK" id="cz6-xI-idw"/>
                         <outlet property="score" destination="aww-vo-dTU" id="CPz-ln-AzP"/>
                         <outlet property="shot" destination="DHz-Fc-hrr" id="Dvv-Hc-5Zv"/>
@@ -98,6 +110,8 @@
     <resources>
         <image name="alien.png" width="154" height="128"/>
         <image name="bg.png" width="1080" height="750"/>
+        <image name="comet.png" width="123" height="95"/>
+        <image name="explosion.png" width="300" height="300"/>
         <image name="satellite.png" width="448" height="443"/>
     </resources>
 </document>
