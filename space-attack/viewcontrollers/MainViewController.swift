@@ -12,15 +12,17 @@ import AVFoundation
 class MainViewController: UIViewController {
     
     @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var ready: UILabel!
+    @IBOutlet weak var timeRemains: UILabel!
     
     @IBOutlet weak var satellite: UIImageView!
     @IBOutlet weak var alien: UIImageView!
     @IBOutlet weak var explosion: UIImageView!
     @IBOutlet weak var comet: UIImageView!
     
-    @IBOutlet weak var shot: UIButton!
-  
-    @IBOutlet weak var timeRemains: UILabel!
+    @IBOutlet weak var rotateLeft: UIButton!
+    @IBOutlet weak var rotateRight: UIButton!
+    @IBOutlet weak var shoot: UIButton!
     
     var rocket: UIImageView!
     
@@ -34,7 +36,7 @@ class MainViewController: UIViewController {
     var alienExploded = 0
     var controlRotation = 0
     var angle = -300
-    var time = 10
+    var time = 60
     
     @IBAction func actionRotateLeft(_ sender: UIButton)
     {
@@ -74,10 +76,13 @@ class MainViewController: UIViewController {
     
     @IBAction func actionShot(_ sender: UIButton)
     {
+        sender.titleLabel?.text = "wait"
         sender.isEnabled = false
         rocket.isHidden = false
+        rotateLeft.isEnabled = false
+        rotateRight.isEnabled = false
         
-        timerRocket =  Timer.scheduledTimer(timeInterval: 0.01,
+        timerRocket =  Timer.scheduledTimer(timeInterval: 0.005,
                                         target: self,
                                         selector: #selector(animationRocket),
                                         userInfo: nil,
@@ -94,7 +99,7 @@ class MainViewController: UIViewController {
         
         alien.frame = CGRect(x: positionX, y: positionY, width: alienWidth, height: alienHeight)
         
-        let timeInterval = 0.01 * Double(Int(arc4random_uniform(UInt32(2)))+1)
+        let timeInterval = 0.003 * Double(Int(arc4random_uniform(UInt32(2)))+1)
         
         timerAlien =  Timer.scheduledTimer(timeInterval: timeInterval,
                                        target: self,
@@ -155,7 +160,10 @@ class MainViewController: UIViewController {
             rocket.isHidden = true
             rocket = nil
             createRocket()
-            shot.isEnabled = true
+            shoot.isEnabled = true
+            shoot.titleLabel?.text = "shoot"
+            rotateLeft.isEnabled = true
+            rotateRight.isEnabled = true
         }
         
         if(rocket.frame.intersects(alien.frame))
@@ -173,7 +181,9 @@ class MainViewController: UIViewController {
             
             timerAlien.invalidate()
             timerRocket.invalidate()
-            shot.isEnabled = true
+            rotateLeft.isEnabled = true
+            rotateRight.isEnabled = true
+            shoot.isEnabled = true
             rocket.isHidden = true
             rocket = nil
             createAlien()
@@ -184,7 +194,6 @@ class MainViewController: UIViewController {
     @objc func countDown()
     {
         time -= 1;
-        
         timeRemains.text = String(time)
         
         if time == 0 {
@@ -193,9 +202,27 @@ class MainViewController: UIViewController {
                 timerRocket.invalidate()
             }
             
-            performSegue(withIdentifier: "seg", sender: self)
+            ready.text = "Game Over"
+            ready.alpha = 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                self.performSegue(withIdentifier: "rank", sender: self)
+            })
         }
-       
+        else if time < 10
+        {
+            timeRemains.textColor = UIColor.red
+        }
+        else
+        {
+            timeRemains.textColor = UIColor.white
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "rank" ,
+            let rankingViewController = segue.destination as? RankingViewController {
+             rankingViewController.score = alienExploded
+        }
     }
     
     func initTime(){
@@ -224,18 +251,50 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad()
     {
-        shot.layer.cornerRadius = 35
-        shot.titleLabel?.adjustsFontSizeToFitWidth = true
-        createAlien()
-        createRocket()
-        createComet()
-        initSound()
-        initTime()
-       
+        timeRemains.text = String(time)
+        shoot.layer.cornerRadius = 35
+        shoot.titleLabel?.adjustsFontSizeToFitWidth = true
+        ready.adjustsFontSizeToFitWidth = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.starting(n:3)
+        })
+    
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    func starting(n: Int){
+        ready.text = String(n)
+        UIView.animate(withDuration: 1, delay: 1, options: .curveEaseOut, animations: {
+            self.ready.alpha = 0
+        }) { (true) in
+            self.ready.alpha = 1
+            let _n = n - 1
+          
+            if _n > 0
+            {
+                self.starting(n: _n)
+            }
+            else
+            {
+                self.ready.text = "Go!"
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    self.ready.alpha = 0
+                    self.rotateLeft.isEnabled = true
+                    self.rotateRight.isEnabled = true
+                    self.shoot.isEnabled = true
+                    self.createAlien()
+                    self.createRocket()
+                    self.createComet()
+                    self.initSound()
+                    self.initTime()
+                })
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

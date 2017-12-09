@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Zh-kl-Gm3">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,7 +34,7 @@
                                 <rect key="frame" x="563" y="699" width="224" height="221"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHz-Fc-hrr">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHz-Fc-hrr">
                                 <rect key="frame" x="1178" y="870" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.32817646861076355" green="0.60112673044204712" blue="0.22039321064949036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -46,7 +46,7 @@
                                     <action selector="actionShot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tgD-Dm-xeY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xc-4r-ZCt">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xc-4r-ZCt">
                                 <rect key="frame" x="11" y="944" width="61" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.6542150954" blue="0.1065552367" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -57,7 +57,7 @@
                                     <action selector="actionRotateLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fPj-Z0-Neu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1q-lJ-thR">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1q-lJ-thR">
                                 <rect key="frame" x="87" y="944" width="61" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.6542150954" blue="0.1065552367" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -77,14 +77,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aww-vo-dTU">
-                                <rect key="frame" x="20" y="20" width="66" height="68"/>
+                                <rect key="frame" x="20" y="20" width="139" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Spaceman" family="spaceman" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY2-a5-gmq">
-                                <rect key="frame" x="94" y="44" width="111" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ready?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmD-eP-F7u">
+                                <rect key="frame" x="150" y="356" width="1096" height="312"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Spaceman" family="spaceman" pointSize="150"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY2-a5-gmq">
+                                <rect key="frame" x="188" y="44" width="111" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Spaceman" family="spaceman" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -100,20 +107,39 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Ok7-6C-Swv"/>
                     <connections>
                         <outlet property="alien" destination="oZ8-I8-SzZ" id="qIn-BB-HJ5"/>
                         <outlet property="comet" destination="wkD-Xh-m4v" id="ks6-Te-hpK"/>
                         <outlet property="explosion" destination="kDf-Jv-Xf3" id="Bcd-w8-pWQ"/>
+                        <outlet property="ready" destination="hmD-eP-F7u" id="EZm-5j-hkg"/>
+                        <outlet property="rotateLeft" destination="9xc-4r-ZCt" id="7S9-wk-g5C"/>
+                        <outlet property="rotateRight" destination="f1q-lJ-thR" id="rRX-AK-n2E"/>
                         <outlet property="satellite" destination="qoU-i0-JiK" id="cz6-xI-idw"/>
                         <outlet property="score" destination="aww-vo-dTU" id="CPz-ln-AzP"/>
-                        <outlet property="shot" destination="DHz-Fc-hrr" id="Dvv-Hc-5Zv"/>
+                        <outlet property="shoot" destination="DHz-Fc-hrr" id="NNq-8q-2Qq"/>
                         <outlet property="timeRemains" destination="lY2-a5-gmq" id="S7h-yW-6XP"/>
-                        <segue destination="gyP-Gq-IRL" kind="show" identifier="seg" id="uzZ-si-L7w"/>
+                        <segue destination="gyP-Gq-IRL" kind="show" identifier="rank" id="uzZ-si-L7w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.942898975109806" y="32.8125"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="A1U-eM-4rh">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="8Zh-kl-Gm3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l6c-1G-yRA">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="47w-Hm-SkW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0aU-NB-aNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-651" y="33"/>
         </scene>
         <!--Ranking View Controller-->
         <scene sceneID="HYt-1H-cwm">
@@ -123,11 +149,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2c2-T7-QVu">
-                                <rect key="frame" x="425" y="56" width="516" height="47"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="8kh-6E-oBS">
+                                <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="utilizateur" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2c2-T7-QVu">
+                                <rect key="frame" x="425" y="56" width="500" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.09270651638507843" green="0.13135592639446259" blue="0.23933140933513641" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Spaceman" family="spaceman" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AY0-9l-3VV">
@@ -171,15 +201,37 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="es0-mk-A1d">
-                                <rect key="frame" x="533" y="132" width="300" height="65"/>
+                                <rect key="frame" x="425" y="129" width="240" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" red="0.94934737682342529" green="0.65085101127624512" blue="0.23131974041461945" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Spaceman" family="spaceman" pointSize="23"/>
+                                <state key="normal" title="Ajouter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="actionSaveScore:" destination="gyP-Gq-IRL" eventType="touchUpInside" id="cIL-HN-FOG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLB-B1-Bys">
+                                <rect key="frame" x="685" y="129" width="240" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.31702670454978943" green="0.49269524216651917" blue="0.21965490281581879" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Spaceman" family="spaceman" pointSize="23"/>
+                                <state key="normal" title="encore">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="ebc-5T-YOw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8kh-6E-oBS" firstAttribute="leading" secondItem="tSB-L2-cQk" secondAttribute="leading" id="dcy-df-BId"/>
+                            <constraint firstItem="8kh-6E-oBS" firstAttribute="trailing" secondItem="tSB-L2-cQk" secondAttribute="trailing" id="k9J-il-WuI"/>
+                            <constraint firstItem="8kh-6E-oBS" firstAttribute="top" secondItem="XfW-V3-QRP" secondAttribute="top" id="qdt-dA-dyo"/>
+                            <constraint firstItem="8kh-6E-oBS" firstAttribute="bottom" secondItem="tSB-L2-cQk" secondAttribute="bottom" id="t9i-BC-LNh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tSB-L2-cQk"/>
                     </view>
                     <connections>
@@ -189,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67b-6j-r30" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="723.42606149341134" y="32.8125"/>
+            <point key="canvasLocation" x="734" y="-103"/>
         </scene>
     </scenes>
     <resources>
@@ -199,4 +251,8 @@
         <image name="explosion.png" width="300" height="300"/>
         <image name="satellite.png" width="448" height="443"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="uzZ-si-L7w"/>
+        <segue reference="ebc-5T-YOw"/>
+    </inferredMetricsTieBreakers>
 </document>

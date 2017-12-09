@@ -23,7 +23,11 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableViewRanking: UITableView!
     
     var ranking = [String: String]()
-    var rankingKeyAsList: Array<Any>!
+    var rankingSorted = [(key: String, value: String)]()
+    
+    var userDefaultsManager = UserDefaultsManager()
+    
+    var score = 0
     
     @IBAction func actionSaveScore(_ sender: UIButton)
     {
@@ -40,8 +44,10 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             else
             {
-                ranking.updateValue("100", forKey: _user)
-                rankingKeyAsList = Array(ranking.keys)
+                ranking.updateValue(String(score), forKey: _user)
+                rankingSorted = ranking.sorted{ $0.value < $1.value }
+                
+                userDefaultsManager.setKey(theValue: ranking as AnyObject, key: "ranking")
                 
                 tableViewRanking.reloadData()
             }
@@ -53,7 +59,6 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,12 +68,20 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ranking", for: indexPath) as! RankingTableViewCell
     
-        cell.labelUserName.text = rankingKeyAsList[indexPath.row] as? String
-        cell.labelScore.text = "100"
+        let key = rankingSorted[indexPath.row].key
+        
+        cell.labelUserName.text = key
+        cell.labelScore.text = ranking[key]
         
         return cell
     }
     override func viewDidLoad() {
+        if userDefaultsManager.doesKeyExist(theKey: "ranking")
+        {
+            ranking =  userDefaultsManager.getValue(theKey: "ranking") as! [String: String]
+            rankingSorted = ranking.sorted{ $0.value < $1.value }
+        }
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -79,15 +92,4 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
