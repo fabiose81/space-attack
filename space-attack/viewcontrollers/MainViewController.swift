@@ -173,7 +173,7 @@ class MainViewController: UIViewController {
             playerExplosion?.play()
             alienExploded += 1
             time += 10
-            score.text = String(alienExploded)
+            score.text = "score: \(String(alienExploded))"
             explosion.center = alien.center
             self.explosion.isHidden = false
             
@@ -196,7 +196,7 @@ class MainViewController: UIViewController {
     @objc func countDown()
     {
         time -= 1;
-        timeRemains.text = String(time)
+        timeRemains.text = "temps restant: \(String(time))"
         
         if time == 0 {
             timerGameOver.invalidate()
@@ -316,7 +316,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad()
     {
         self.initSound()
-        timeRemains.text = String(time)
+        timeRemains.text = "temps restant: \(String(time))"
         shoot.titleLabel?.adjustsFontSizeToFitWidth = true
         ready.adjustsFontSizeToFitWidth = true
         
