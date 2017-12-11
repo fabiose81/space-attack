@@ -79,7 +79,9 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
         if userDefaultsManager.doesKeyExist(theKey: "ranking")
         {
             ranking =  userDefaultsManager.getValue(theKey: "ranking") as! [String: String]
-            rankingSorted = ranking.sorted{ $0.value < $1.value }
+            rankingSorted = ranking.sorted{ $0.value > $1.value }
+            
+            print(rankingSorted)
         }
         
         super.viewDidLoad()

@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
     var alienExploded = 0
     var controlRotation = 0
     var angle = -300
-    var time = 60
+    var time = 5
     
     @IBAction func actionRotateLeft(_ sender: UIButton)
     {
@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
     
     @IBAction func actionShot(_ sender: UIButton)
     {
-        sender.titleLabel?.text = "wait"
+        sender.titleLabel?.text = "attendez"
         sender.isEnabled = false
         rocket.isHidden = false
         rotateLeft.isEnabled = false
@@ -202,7 +202,7 @@ class MainViewController: UIViewController {
                 timerRocket.invalidate()
             }
             
-            ready.text = "Game Over"
+            ready.text = "Fin de jeu"
             ready.alpha = 1
             DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                 self.performSegue(withIdentifier: "rank", sender: self)
@@ -278,7 +278,7 @@ class MainViewController: UIViewController {
             }
             else
             {
-                self.ready.text = "Go!"
+                self.ready.text = "Allez!"
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                     self.ready.alpha = 0
