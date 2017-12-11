@@ -260,22 +260,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad()
-    {
-        self.initSound()
-        timeRemains.text = String(time)
-        shoot.layer.cornerRadius = 35
-        shoot.titleLabel?.adjustsFontSizeToFitWidth = true
-        ready.adjustsFontSizeToFitWidth = true
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.starting(n:3)
-        })
-    
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
     func starting(n: Int){
         ready.text = String(n)
         self.playerBeep?.play()
@@ -307,12 +291,7 @@ class MainViewController: UIViewController {
             }
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     @objc func animationComet()
     {
         let cos = __cospi(Double(-45)/Double.pi)
@@ -334,5 +313,19 @@ class MainViewController: UIViewController {
         }
     }
 
+    override func viewDidLoad()
+    {
+        self.initSound()
+        timeRemains.text = String(time)
+        shoot.titleLabel?.adjustsFontSizeToFitWidth = true
+        ready.adjustsFontSizeToFitWidth = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.starting(n:3)
+        })
+        
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
 }
 

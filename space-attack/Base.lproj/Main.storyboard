@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="space.otf">
+        <array key="A-Space Regular Demo.otf">
             <string>A-SpaceDemo</string>
         </array>
         <array key="spaceman.ttf">
@@ -38,11 +38,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHz-Fc-hrr">
-                                <rect key="frame" x="1178" y="870" width="100" height="100"/>
+                                <rect key="frame" x="1246" y="904" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.32817646861076355" green="0.60112673044204712" blue="0.22039321064949036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="A-SpaceDemo" family="A-Space Demo" pointSize="25"/>
-                                <state key="normal" title="tirer">
+                                <state key="normal" title="tirer" backgroundImage="shoot.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -50,25 +49,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xc-4r-ZCt">
-                                <rect key="frame" x="11" y="944" width="61" height="60"/>
+                                <rect key="frame" x="11" y="954" width="90" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.6542150954" blue="0.1065552367" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="&lt;&lt;">
+                                <state key="normal" backgroundImage="direction-left.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="actionRotateLeft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fPj-Z0-Neu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1q-lJ-thR">
-                                <rect key="frame" x="87" y="944" width="61" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.6542150954" blue="0.1065552367" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="&gt;&gt;">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="actionRotateRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TrP-Sm-NYJ"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="explosion.png" translatesAutoresizingMaskIntoConstraints="NO" id="kDf-Jv-Xf3">
@@ -100,6 +87,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1q-lJ-thR">
+                                <rect key="frame" x="129" y="954" width="90" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="direction-right.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionRotateRight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TrP-Sm-NYJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -251,10 +248,14 @@
         <image name="alien.png" width="154" height="128"/>
         <image name="bg.png" width="1080" height="750"/>
         <image name="comet.png" width="123" height="95"/>
+        <image name="direction-left.png" width="180" height="100"/>
+        <image name="direction-right.png" width="180" height="100"/>
         <image name="explosion.png" width="300" height="300"/>
         <image name="satellite.png" width="448" height="443"/>
+        <image name="shoot.png" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="uzZ-si-L7w"/>
         <segue reference="ebc-5T-YOw"/>
     </inferredMetricsTieBreakers>
 </document>
