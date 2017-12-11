@@ -240,20 +240,20 @@ class MainViewController: UIViewController {
     {
         guard let urlBackground = Bundle.main.url(forResource: "background", withExtension: "m4a") else { return }
         guard let urlExplosion = Bundle.main.url(forResource: "explosion", withExtension: "mp3") else { return }
-        guard let urlBeep = Bundle.main.url(forResource: "beep", withExtension: "wav") else { return }
+        guard let urlBeep = Bundle.main.url(forResource: "beep", withExtension: "mp3") else { return }
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             try AVAudioSession.sharedInstance().setActive(true)
             
             playerExplosion = try AVAudioPlayer(contentsOf: urlExplosion)
-            playerExplosion?.setVolume(1.0, fadeDuration: 0)
+            playerExplosion?.setVolume(2.0, fadeDuration: 0)
             
             playerBeep = try AVAudioPlayer(contentsOf: urlBeep)
-            playerBeep?.setVolume(1.0, fadeDuration: 0)
+            playerBeep?.setVolume(1.5, fadeDuration: 0)
             
             playerBackground = try AVAudioPlayer(contentsOf: urlBackground)
-            playerBackground?.setVolume(1.0, fadeDuration: 0)
+            playerBackground?.setVolume(0.8, fadeDuration: 0)
             playerBackground?.numberOfLoops = -1
         } catch let error {
             print(error.localizedDescription)
