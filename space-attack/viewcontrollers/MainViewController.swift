@@ -31,12 +31,14 @@ class MainViewController: UIViewController {
     var timerComet: Timer!
     var timerGameOver: Timer!
     
+    var playerBeep: AVAudioPlayer?
+    var playerBackground: AVAudioPlayer?
     var playerExplosion: AVAudioPlayer?
     
     var alienExploded = 0
     var controlRotation = 0
     var angle = -300
-    var time = 5
+    var time = 30
     
     @IBAction func actionRotateLeft(_ sender: UIButton)
     {
@@ -236,7 +238,9 @@ class MainViewController: UIViewController {
     //--- Fonctions pour commencer l'audio
     func initSound()
     {
+        guard let urlBackground = Bundle.main.url(forResource: "background", withExtension: "m4a") else { return }
         guard let urlExplosion = Bundle.main.url(forResource: "explosion", withExtension: "mp3") else { return }
+        guard let urlBeep = Bundle.main.url(forResource: "beep", withExtension: "wav") else { return }
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
@@ -244,6 +248,13 @@ class MainViewController: UIViewController {
             
             playerExplosion = try AVAudioPlayer(contentsOf: urlExplosion)
             playerExplosion?.setVolume(1.0, fadeDuration: 0)
+            
+            playerBeep = try AVAudioPlayer(contentsOf: urlBeep)
+            playerBeep?.setVolume(1.0, fadeDuration: 0)
+            
+            playerBackground = try AVAudioPlayer(contentsOf: urlBackground)
+            playerBackground?.setVolume(1.0, fadeDuration: 0)
+            playerBackground?.numberOfLoops = -1
         } catch let error {
             print(error.localizedDescription)
         }
@@ -251,6 +262,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad()
     {
+        self.initSound()
         timeRemains.text = String(time)
         shoot.layer.cornerRadius = 35
         shoot.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -266,6 +278,7 @@ class MainViewController: UIViewController {
 
     func starting(n: Int){
         ready.text = String(n)
+        self.playerBeep?.play()
         UIView.animate(withDuration: 1, delay: 1, options: .curveEaseOut, animations: {
             self.ready.alpha = 0
         }) { (true) in
@@ -288,8 +301,8 @@ class MainViewController: UIViewController {
                     self.createAlien()
                     self.createRocket()
                     self.createComet()
-                    self.initSound()
                     self.initTime()
+                    self.playerBackground?.play()
                 })
             }
         }

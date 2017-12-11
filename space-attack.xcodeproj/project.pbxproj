@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4C09634A1FDE3E980038A79F /* A-Space Regular Demo.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C0963491FDE3E970038A79F /* A-Space Regular Demo.otf */; };
+		4C09634C1FDE41150038A79F /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4C09634B1FDE41150038A79F /* beep.wav */; };
+		4C09634E1FDE47040038A79F /* background.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4C09634D1FDE47040038A79F /* background.m4a */; };
 		4C4829CF1FDA55370027046C /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4829CE1FDA55370027046C /* RankingViewController.swift */; };
 		4CB64A1D1FD6338A005A9853 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB64A1C1FD6338A005A9853 /* AppDelegate.swift */; };
 		4CB64A1F1FD6338A005A9853 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB64A1E1FD6338A005A9853 /* MainViewController.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		4C0963491FDE3E970038A79F /* A-Space Regular Demo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "A-Space Regular Demo.otf"; sourceTree = "<group>"; };
+		4C09634B1FDE41150038A79F /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
+		4C09634D1FDE47040038A79F /* background.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.m4a; sourceTree = "<group>"; };
 		4C4829CE1FDA55370027046C /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		4CB64A191FD6338A005A9853 /* space-attack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "space-attack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB64A1C1FD6338A005A9853 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 		4CFCD1D71FD9016400DFC789 /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				4C09634D1FDE47040038A79F /* background.m4a */,
+				4C09634B1FDE41150038A79F /* beep.wav */,
 				4CFCD1DA1FD903E400DFC789 /* explosion.mp3 */,
 			);
 			path = audio;
@@ -193,10 +199,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C09634C1FDE41150038A79F /* beep.wav in Resources */,
 				9BDA71F21FD9C3A90032A202 /* bg.png in Resources */,
 				9B8B4F841FD71C8700B2FB1D /* comet.png in Resources */,
 				9B8B4F821FD713A700B2FB1D /* explosion.png in Resources */,
 				4C09634A1FDE3E980038A79F /* A-Space Regular Demo.otf in Resources */,
+				4C09634E1FDE47040038A79F /* background.m4a in Resources */,
 				9B8B4F801FD7030A00B2FB1D /* rocket.png in Resources */,
 				4CB64A271FD6338A005A9853 /* LaunchScreen.storyboard in Resources */,
 				9B8B4F7E1FD7030A00B2FB1D /* satellite.png in Resources */,
