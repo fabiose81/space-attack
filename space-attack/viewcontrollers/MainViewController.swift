@@ -141,7 +141,9 @@ class MainViewController: UIViewController {
         if(alien.frame.origin.x < alienPosition)
         {
             timerAlien.invalidate()
-            createAlien()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.createAlien()
+            })
         }
     }
     
@@ -172,7 +174,7 @@ class MainViewController: UIViewController {
         {
             playerExplosion?.play()
             alienExploded += 1
-            time += 10
+            time += 5
             score.text = "score: \(String(alienExploded))"
             explosion.center = alien.center
             self.explosion.isHidden = false
@@ -204,7 +206,7 @@ class MainViewController: UIViewController {
                 timerRocket.invalidate()
             }
             
-            ready.text = "Fin de jeu"
+            ready.text = "Jeu terminé"
             ready.alpha = 1
             DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                 self.performSegue(withIdentifier: "rank", sender: self)

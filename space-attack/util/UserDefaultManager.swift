@@ -22,4 +22,7 @@ class UserDefaultsManager {
         return UserDefaults.standard.object(forKey: theKey) as AnyObject
     }
     //--------
+    func getData(theKey: String) -> Data {
+        return UserDefaults.standard.data(forKey: theKey)!
+    }
 }
