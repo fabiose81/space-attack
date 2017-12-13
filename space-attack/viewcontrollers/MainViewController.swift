@@ -206,8 +206,14 @@ class MainViewController: UIViewController {
                 timerRocket.invalidate()
             }
             
+            if (timerAlien != nil) {
+                timerAlien.invalidate()
+            }
+            
             ready.text = "Jeu terminé"
             ready.alpha = 1
+            playerBackground?.stop()
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                 self.performSegue(withIdentifier: "rank", sender: self)
             })

@@ -11,11 +11,11 @@ import Foundation
 class User: NSObject, NSCoding {
     
     var name: String!
-    var score: String!
+    var score: Int!
     var date: String!
    
     
-    init(name: String!, score: String!, date: String!) {
+    init(name: String!, score: Int!, date: String!) {
         self.name = name
         self.score = score
         self.date = date
@@ -24,7 +24,7 @@ class User: NSObject, NSCoding {
     //Fonction pour la decodification de la structure pour l'utilisation de UserDefaults
     required init(coder decoder: NSCoder) {
         name = decoder.decodeObject(forKey: "name") as? String
-        score = decoder.decodeObject(forKey: "score") as? String
+        score = decoder.decodeObject(forKey: "score") as? Int
         date = decoder.decodeObject(forKey: "date") as? String
     }
     

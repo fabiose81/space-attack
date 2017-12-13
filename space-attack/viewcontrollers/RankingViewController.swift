@@ -35,12 +35,16 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if _user != ""
         {
+            user.isEnabled = false
+            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             let date = dateFormatter.string(from: NSDate() as Date)
             
-            let user = User(name: _user, score: String(score), date: date)
-            users.append(user)
+            let userObj = User(name: _user, score: score, date: date)
+            users.append(userObj)
+            
+            users.sort{ $0.score > $1.score }
                
             let data = NSKeyedArchiver.archivedData(withRootObject: users);
             userDefaultsManager.setKey(theValue: data as AnyObject, key: "users")
@@ -68,7 +72,7 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
         let date = users[indexPath.row].date
         
         cell.labelUserName.text = name
-        cell.labelScore.text = score
+        cell.labelScore.text = String(describing: score!)
         cell.labelDate.text = date
         
         return cell
@@ -79,6 +83,7 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
         {
             let data = userDefaultsManager.getData(theKey: "users")
             users = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [User])!
+            users.sort{ $0.score > $1.score }
         }
         
         super.viewDidLoad()
