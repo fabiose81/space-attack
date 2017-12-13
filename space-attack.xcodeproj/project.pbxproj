@@ -18,6 +18,11 @@
 		4CB64A271FD6338A005A9853 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CB64A251FD6338A005A9853 /* LaunchScreen.storyboard */; };
 		4CFCD1DB1FD903E400DFC789 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4CFCD1DA1FD903E400DFC789 /* explosion.mp3 */; };
 		4CFD8E541FDB8588006F0E16 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFD8E531FDB8588006F0E16 /* UserDefaultManager.swift */; };
+		9B7258F31FDECAB1001D7244 /* shoot.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7258F21FDECAB1001D7244 /* shoot.png */; };
+		9B7258F61FDECB2E001D7244 /* direction-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7258F41FDECB2E001D7244 /* direction-left.png */; };
+		9B7258F71FDECB2E001D7244 /* direction-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7258F51FDECB2E001D7244 /* direction-right.png */; };
+		9B7258FB1FDEF0F2001D7244 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7258FA1FDEF0F2001D7244 /* launch.png */; };
+		9B7258FD1FE0661B001D7244 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7258FC1FE0661B001D7244 /* User.swift */; };
 		9B8B4F7D1FD7030A00B2FB1D /* alien.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F791FD7030900B2FB1D /* alien.png */; };
 		9B8B4F7E1FD7030A00B2FB1D /* satellite.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F7A1FD7030900B2FB1D /* satellite.png */; };
 		9B8B4F801FD7030A00B2FB1D /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F7C1FD7030900B2FB1D /* rocket.png */; };
@@ -40,6 +45,11 @@
 		4CB64A281FD6338A005A9853 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CFCD1DA1FD903E400DFC789 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		4CFD8E531FDB8588006F0E16 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		9B7258F21FDECAB1001D7244 /* shoot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoot.png; sourceTree = "<group>"; };
+		9B7258F41FDECB2E001D7244 /* direction-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "direction-left.png"; sourceTree = "<group>"; };
+		9B7258F51FDECB2E001D7244 /* direction-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "direction-right.png"; sourceTree = "<group>"; };
+		9B7258FA1FDEF0F2001D7244 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch.png; sourceTree = "<group>"; };
+		9B7258FC1FE0661B001D7244 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B8B4F791FD7030900B2FB1D /* alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alien.png; sourceTree = "<group>"; };
 		9B8B4F7A1FD7030900B2FB1D /* satellite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = satellite.png; sourceTree = "<group>"; };
 		9B8B4F7C1FD7030900B2FB1D /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
@@ -88,6 +98,7 @@
 				4CB64A231FD6338A005A9853 /* Assets.xcassets */,
 				4CB64A251FD6338A005A9853 /* LaunchScreen.storyboard */,
 				4CB64A281FD6338A005A9853 /* Info.plist */,
+				9B7258FC1FE0661B001D7244 /* User.swift */,
 			);
 			path = "space-attack";
 			sourceTree = "<group>";
@@ -104,6 +115,10 @@
 		4CB64A2F1FD6399C005A9853 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9B7258FA1FDEF0F2001D7244 /* launch.png */,
+				9B7258F41FDECB2E001D7244 /* direction-left.png */,
+				9B7258F51FDECB2E001D7244 /* direction-right.png */,
+				9B7258F21FDECAB1001D7244 /* shoot.png */,
 				9BDA71F11FD9C3A90032A202 /* bg.png */,
 				9B8B4F831FD71C8700B2FB1D /* comet.png */,
 				9B8B4F811FD713A700B2FB1D /* explosion.png */,
@@ -199,8 +214,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B7258F61FDECB2E001D7244 /* direction-left.png in Resources */,
 				9BDA71F21FD9C3A90032A202 /* bg.png in Resources */,
+				9B7258F71FDECB2E001D7244 /* direction-right.png in Resources */,
 				9B8B4F841FD71C8700B2FB1D /* comet.png in Resources */,
+				9B7258FB1FDEF0F2001D7244 /* launch.png in Resources */,
 				9B8B4F821FD713A700B2FB1D /* explosion.png in Resources */,
 				4C09634A1FDE3E980038A79F /* A-Space Regular Demo.otf in Resources */,
 				4C09634E1FDE47040038A79F /* background.m4a in Resources */,
@@ -210,6 +228,7 @@
 				9B8B4F7E1FD7030A00B2FB1D /* satellite.png in Resources */,
 				4CFCD1DB1FD903E400DFC789 /* explosion.mp3 in Resources */,
 				9B8B4F7D1FD7030A00B2FB1D /* alien.png in Resources */,
+				9B7258F31FDECAB1001D7244 /* shoot.png in Resources */,
 				4CB64A241FD6338A005A9853 /* Assets.xcassets in Resources */,
 				4CB64A221FD6338A005A9853 /* Main.storyboard in Resources */,
 			);
@@ -225,6 +244,7 @@
 				4CB64A1F1FD6338A005A9853 /* MainViewController.swift in Sources */,
 				4CB64A1D1FD6338A005A9853 /* AppDelegate.swift in Sources */,
 				4CFD8E541FDB8588006F0E16 /* UserDefaultManager.swift in Sources */,
+				9B7258FD1FE0661B001D7244 /* User.swift in Sources */,
 				4C4829CF1FDA55370027046C /* RankingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -141,7 +141,9 @@ class MainViewController: UIViewController {
         if(alien.frame.origin.x < alienPosition)
         {
             timerAlien.invalidate()
-            createAlien()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.createAlien()
+            })
         }
     }
     
@@ -172,8 +174,8 @@ class MainViewController: UIViewController {
         {
             playerExplosion?.play()
             alienExploded += 1
-            time += 10
-            score.text = String(alienExploded)
+            time += 5
+            score.text = "score: \(String(alienExploded))"
             explosion.center = alien.center
             self.explosion.isHidden = false
             
@@ -196,7 +198,7 @@ class MainViewController: UIViewController {
     @objc func countDown()
     {
         time -= 1;
-        timeRemains.text = String(time)
+        timeRemains.text = "temps restant: \(String(time))"
         
         if time == 0 {
             timerGameOver.invalidate()
@@ -204,7 +206,7 @@ class MainViewController: UIViewController {
                 timerRocket.invalidate()
             }
             
-            ready.text = "Fin de jeu"
+            ready.text = "Jeu terminé"
             ready.alpha = 1
             DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                 self.performSegue(withIdentifier: "rank", sender: self)
@@ -260,22 +262,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad()
-    {
-        self.initSound()
-        timeRemains.text = String(time)
-        shoot.layer.cornerRadius = 35
-        shoot.titleLabel?.adjustsFontSizeToFitWidth = true
-        ready.adjustsFontSizeToFitWidth = true
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.starting(n:3)
-        })
-    
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
     func starting(n: Int){
         ready.text = String(n)
         self.playerBeep?.play()
@@ -307,12 +293,7 @@ class MainViewController: UIViewController {
             }
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
     @objc func animationComet()
     {
         let cos = __cospi(Double(-45)/Double.pi)
@@ -334,5 +315,19 @@ class MainViewController: UIViewController {
         }
     }
 
+    override func viewDidLoad()
+    {
+        self.initSound()
+        timeRemains.text = "temps restant: \(String(time))"
+        shoot.titleLabel?.adjustsFontSizeToFitWidth = true
+        ready.adjustsFontSizeToFitWidth = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.starting(n:3)
+        })
+        
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
 }
 
