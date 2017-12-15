@@ -94,6 +94,14 @@
                                     <action selector="actionShot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tgD-Dm-xeY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QmC-n2-jsr">
+                                <rect key="frame" x="1289" y="20" width="45" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="speak-on.png"/>
+                                <connections>
+                                    <action selector="actionSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ihP-bw-3qc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -115,6 +123,7 @@
                         <outlet property="satellite" destination="qoU-i0-JiK" id="cz6-xI-idw"/>
                         <outlet property="score" destination="aww-vo-dTU" id="CPz-ln-AzP"/>
                         <outlet property="shoot" destination="DHz-Fc-hrr" id="NNq-8q-2Qq"/>
+                        <outlet property="speak" destination="QmC-n2-jsr" id="8ZK-hY-v0C"/>
                         <outlet property="timeRemains" destination="lY2-a5-gmq" id="S7h-yW-6XP"/>
                         <segue destination="gyP-Gq-IRL" kind="show" identifier="rank" id="uzZ-si-L7w"/>
                     </connections>
@@ -258,9 +267,9 @@
         <image name="explosion.png" width="300" height="300"/>
         <image name="satellite.png" width="448" height="443"/>
         <image name="shoot.png" width="533" height="244"/>
+        <image name="speak-on.png" width="183" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uzZ-si-L7w"/>
         <segue reference="ebc-5T-YOw"/>
     </inferredMetricsTieBreakers>
 </document>

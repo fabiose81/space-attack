@@ -29,6 +29,8 @@
 		9B8B4F821FD713A700B2FB1D /* explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F811FD713A700B2FB1D /* explosion.png */; };
 		9B8B4F841FD71C8700B2FB1D /* comet.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B8B4F831FD71C8700B2FB1D /* comet.png */; };
 		9BDA71F21FD9C3A90032A202 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BDA71F11FD9C3A90032A202 /* bg.png */; };
+		9BE784031FE416C300CA7BC3 /* speak-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE784011FE416C200CA7BC3 /* speak-on.png */; };
+		9BE784041FE416C300CA7BC3 /* speak-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE784021FE416C200CA7BC3 /* speak-off.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		9B8B4F811FD713A700B2FB1D /* explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion.png; sourceTree = "<group>"; };
 		9B8B4F831FD71C8700B2FB1D /* comet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comet.png; sourceTree = "<group>"; };
 		9BDA71F11FD9C3A90032A202 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		9BE784011FE416C200CA7BC3 /* speak-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speak-on.png"; sourceTree = "<group>"; };
+		9BE784021FE416C200CA7BC3 /* speak-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speak-off.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 		4CB64A2F1FD6399C005A9853 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9BE784021FE416C200CA7BC3 /* speak-off.png */,
+				9BE784011FE416C200CA7BC3 /* speak-on.png */,
 				9B7258FA1FDEF0F2001D7244 /* launch.png */,
 				9B7258F41FDECB2E001D7244 /* direction-left.png */,
 				9B7258F51FDECB2E001D7244 /* direction-right.png */,
@@ -214,7 +220,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BE784041FE416C300CA7BC3 /* speak-off.png in Resources */,
 				9B7258F61FDECB2E001D7244 /* direction-left.png in Resources */,
+				9BE784031FE416C300CA7BC3 /* speak-on.png in Resources */,
 				9BDA71F21FD9C3A90032A202 /* bg.png in Resources */,
 				9B7258F71FDECB2E001D7244 /* direction-right.png in Resources */,
 				9B8B4F841FD71C8700B2FB1D /* comet.png in Resources */,

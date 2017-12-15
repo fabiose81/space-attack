@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var rotateLeft: UIButton!
     @IBOutlet weak var rotateRight: UIButton!
     @IBOutlet weak var shoot: UIButton!
+    @IBOutlet weak var speak: UIButton!
     
     var rocket: UIImageView!
     
@@ -39,6 +40,8 @@ class MainViewController: UIViewController {
     var controlRotation = 0
     var angle = -300
     var time = 30
+    
+    var soundOn: Bool = true
     
     //Fonction pour faire la rotation du satellite à gauche
     @IBAction func actionRotateLeft(_ sender: UIButton)
@@ -297,6 +300,28 @@ class MainViewController: UIViewController {
             playerBackground?.numberOfLoops = -1
         } catch let error {
             print(error.localizedDescription)
+        }
+    }
+    
+    
+    //--- Fonctions pour contrôler l'audio
+    @IBAction func actionSound(_ sender: UIButton)
+    {
+        if soundOn
+        {
+            speak.setBackgroundImage(UIImage(named: "speak-off"), for: .normal)
+            soundOn = false
+            playerBeep?.setVolume(0, fadeDuration: 0)
+            playerBackground?.setVolume(0, fadeDuration: 0)
+            playerExplosion?.setVolume(0, fadeDuration: 0)
+        }
+        else
+        {
+            speak.setBackgroundImage(UIImage(named: "speak-on"), for: .normal)
+            soundOn = true
+            playerBeep?.setVolume(1.0, fadeDuration: 0)
+            playerBackground?.setVolume(1.0, fadeDuration: 0)
+            playerExplosion?.setVolume(1.0, fadeDuration: 0)
         }
     }
     
