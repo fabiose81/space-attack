@@ -40,6 +40,7 @@ class MainViewController: UIViewController {
     var angle = -300
     var time = 30
     
+    //Fonction pour faire la rotation du satellite à gauche
     @IBAction func actionRotateLeft(_ sender: UIButton)
     {
         if controlRotation >= 0
@@ -58,6 +59,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    //Fonction pour faire la rotation du satellite à droit
     @IBAction func actionRotateRight(_ sender: UIButton)
     {
         if controlRotation <= 0
@@ -76,6 +78,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    //Fonction pour lancer le rocket
     @IBAction func actionShot(_ sender: UIButton)
     {
         sender.titleLabel?.text = "attendez"
@@ -91,6 +94,7 @@ class MainViewController: UIViewController {
                                         repeats: true)
     }
     
+    //Fonction pour créer l'alien et lui mettre sur l'écran
     func createAlien()
     {
         let viewHeight = round(UIScreen.main.bounds.height / 2)
@@ -110,6 +114,7 @@ class MainViewController: UIViewController {
                                        repeats: true)
     }
     
+    //Fonction pour créer le rocket
     func createRocket()
     {
         let imagem = UIImage(named: "rocket")
@@ -121,7 +126,8 @@ class MainViewController: UIViewController {
         rocket.isHidden = true
     }
     
-    func createComet()
+    //Fonction pour commencer l'animation du comet
+    func beginAnimationComet()
     {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
             self.timerComet =  Timer.scheduledTimer(timeInterval: 0.002,
@@ -132,6 +138,7 @@ class MainViewController: UIViewController {
         })
     }
     
+    //Fonction pour faire l'animation d'alien
     @objc func animationAlien()
     {
         alien.frame.origin.x = alien.frame.origin.x - 1
@@ -147,6 +154,7 @@ class MainViewController: UIViewController {
         }
     }
     
+     //Fonction pour faire l'animation du rocket et de la collision avec l'alien
     @objc func animationRocket()
     {
         let cos = __cospi(Double(angle)/Double.pi)
@@ -195,6 +203,29 @@ class MainViewController: UIViewController {
         }
     }
     
+    //Fonction pour faire l'animation du comet
+    @objc func animationComet()
+    {
+        let cos = __cospi(Double(-45)/Double.pi)
+        let sin = __sinpi(Double(-45)/Double.pi)
+        
+        comet.center.x -= CGFloat(cos)
+        comet.center.y -= CGFloat(sin)
+        
+        if comet.frame.origin.x < (rocket.frame.width * -1)
+        {
+            timerComet.invalidate()
+            comet.frame.origin.y = -100
+            
+            let width = UIScreen.main.bounds.size.width
+            let positionX =  Int(arc4random_uniform(UInt32(width - 100 + 1)) + 100)
+            
+            comet.frame.origin.x = CGFloat(positionX)
+            beginAnimationComet()
+        }
+    }
+    
+    //Fonction pour faire la compte à rebours du jeu
     @objc func countDown()
     {
         time -= 1;
@@ -235,6 +266,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    //Fonction pour commencer la compte à rebours du jeu
     func initTime(){
         timerGameOver =  Timer.scheduledTimer(timeInterval: 1,
                                            target: self,
@@ -243,7 +275,7 @@ class MainViewController: UIViewController {
                                            repeats: true)
     }
     
-    //--- Fonctions pour commencer l'audio
+    //Fonction pour commencer l'audio
     func initSound()
     {
         guard let urlBackground = Bundle.main.url(forResource: "background", withExtension: "m4a") else { return }
@@ -268,6 +300,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    //Fonction pour commencer le jeu
     func starting(n: Int){
         ready.text = String(n)
         self.playerBeep?.play()
@@ -292,32 +325,11 @@ class MainViewController: UIViewController {
                     self.shoot.isEnabled = true
                     self.createAlien()
                     self.createRocket()
-                    self.createComet()
+                    self.beginAnimationComet()
                     self.initTime()
                     self.playerBackground?.play()
                 })
             }
-        }
-    }
-
-    @objc func animationComet()
-    {
-        let cos = __cospi(Double(-45)/Double.pi)
-        let sin = __sinpi(Double(-45)/Double.pi)
-        
-        comet.center.x -= CGFloat(cos)
-        comet.center.y -= CGFloat(sin)
-        
-        if comet.frame.origin.x < (rocket.frame.width * -1)
-        {
-            timerComet.invalidate()
-            comet.frame.origin.y = -100
-            
-            let width = UIScreen.main.bounds.size.width
-            let positionX =  Int(arc4random_uniform(UInt32(width - 100 + 1)) + 100)
-            
-            comet.frame.origin.x = CGFloat(positionX)
-            createComet()
         }
     }
 

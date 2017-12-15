@@ -29,6 +29,7 @@ class RankingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var score = 0
     
+    //Fonction pour enregistrer la ponctuation 
     @IBAction func actionSaveScore(_ sender: UIButton)
     {
         let _user = String(describing: user.text!).trimmingCharacters(in: .whitespaces)
